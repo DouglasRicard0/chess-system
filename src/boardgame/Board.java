@@ -4,19 +4,19 @@ public class Board {
 
 	private int rows;
 	private int columns;
-	private Piece piece[][];
+	private Piece pieces[][];
 	
 	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		piece = new Piece[rows][columns];
+		pieces = new Piece[rows][columns];
 	}
 
-	public synchronized int getRow() {
+	public synchronized int getRows() {
 		return rows;
 	}
 
-	public synchronized void setRow(int row) {
+	public synchronized void setRows(int row) {
 		this.rows = row;
 	}
 
@@ -27,6 +27,11 @@ public class Board {
 	public synchronized void setColumns(int columns) {
 		this.columns = columns;
 	}
-	
+	public Piece piece(int row, int column) {
+	return pieces[row][column];
+	}
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
 	
 }
